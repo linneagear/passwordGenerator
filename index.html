@@ -1,34 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Password Generator</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Password Generator</h1>
-      </header>
-      <div class="card">
-        <div class="card-header">
-          <h2>Generate a Password</h2>
-        </div>
-        <div class="card-body">
-          <textarea
-            readonly
-            id="password"
-            placeholder="Your Secure Password"
-            aria-label="Generated Password"
-          ></textarea>
-        </div>
-        <div class="card-footer">
-          <button id="generate" class="btn">Generate Password</button>
-        </div>
-      </div>
-    </div>
-    <script src="script.js"></script>
-  </body>
+
+</head>
+
+<body>
+    <script>
+        // Assignment Code
+        // var generateBtn = document.querySelector("#generate");
+
+
+        // // Add event listener to generate button
+        // generateBtn.addEventListener("click", writePassword);
+
+        var pwUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+        var pwLower = pwUpper[25].toLowerCase();
+
+        // var pwSpecial = ["!", "@", "#", " $ % ^ & * ( ) _ +];
+        var pwNumeric = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+
+        // Step 1: Confirm - generate a new password? Yes goes to next, cancel ENDS
+        var confirmPW = confirm("Let's generate a new password!");
+        alert("Your password must contain at least one number and one uppercase and lowercase letter, or a special character and at least 8 or more characters");
+
+        var confirmUpper = confirm("Do you want upper case letters?")
+        var confirmLower = confirm("Do you want lower case letters?")
+        var confirmNumeric = confirm("Do you want to use numbers?")
+        var confirmSpecial = confirm("Do you want special characters?")
+        var confirmLength = prompt("How long do you want your password to be (between 8 and 128?")
+
+
+        if (confirmUpper === confirmLower) {
+            alert("Upper case letters ")
+        }
+        else if (confirmUpper) {
+            alert()
+        }
+
+        var showResult = [];
+        //array for all the different types that will PUSH to end of this array
+        showResult.push("Upper case letters " + confirmUpper + "lower case letters" + confirmLower +  );
+            alert(showResult);
+            console.log(showResult);
+            alert();
+            
+            console.log(confirmUpper)
+            console.log(confirmUpper)
+            console.log(confirmUpper)
+            console.log(confirmUpper)
+            console.log(confirmUpper)
+
+         
+
+        // min = 8   max = 128
+
+      // // Write password to the #password input
+        // function writePassword() {
+        //   var password = generatePassword();
+        //   var passwordText = document.querySelector("#password");
+
+        //   passwordText.value = password;
+
+        // }
+
+
+    </script>
+</body>
+
 </html>
