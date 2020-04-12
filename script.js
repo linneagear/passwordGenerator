@@ -5,12 +5,10 @@
 // // Add event listener to generate button
 // generateBtn.addEventListener("click", writePassword);
 
-var pwUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-var pwLower = pwUpper[25].toLowerCase();
+var pwUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var pwLower = pwUpper.toLowerCase();
 
-// var pwSpecial = ["!", "@", "#", " $ % ^ & * ( ) _ +];
-var pwNumeric = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-
+var pwSpecial = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+"];
 
 // Step 1: Confirm - generate a new password? Yes goes to next, cancel ENDS
 var confirmPW = confirm("Let's generate a new password!");
@@ -21,31 +19,63 @@ var confirmLower = confirm("Do you want lower case letters?")
 var confirmNumeric = confirm("Do you want to use numbers?")
 var confirmSpecial = confirm("Do you want special characters?")
 var confirmLength = prompt("How long do you want your password to be (between 8 and 128?")
-if (confirmLength < 8 || confirmLength > 128) {
-    alert("Please pick a number between 8 and 128.")
-} else {
-    var showResult = [];
-    //array for all the different types that will PUSH to end of this array
-    showResult.push("Upper case letters?  " + confirmUpper +
-        "\nLower case letters?  " + confirmLower +
-        "\nNumbers?  " + confirmNumeric +
-        "\nSpecial characters?  " + confirmSpecial +
-        "\nDesired password length:  " + confirmLength);
+
+// Step 2: PUSH results to end of this array
+var showResult = [];
+showResult.push("Upper case letters?  " + confirmUpper +
+    "\nLower case letters?  " + confirmLower +
+    "\nNumbers?  " + confirmNumeric +
+    "\nSpecial characters?  " + confirmSpecial +
+    "\nDesired password length:  " + confirmLength);
 
     alert(showResult);
+
+// Step 3: set conditions
+if (confirmUpper === true) {
+    // if they want upper case, computer picks a letter between A and Z
+    for (var i = 0; i < 10; i++) {
+        var numU = pwUpper[Math.floor(Math.random() * pwUpper.length)];
+        console.log(numU);
+    }
+}  
+
+if (confirmLower === true) {
+// if they want lower case, computer picks a letter between a and z
+    for (var j = 0; j < 10; j++) {
+        var pwLower = pwUpper.toString().tolowerCase();
+        var numL = pwLower[Math.floor(Math.random() * pwLower.length)];
+        console.log(pwUpper.charAt(pwUpper));
+    }
+}  
+
+if (confirmNumeric === true) {
+// Generate a random number between 0 and 9
+    for (var i = 0; i < 10; i++) {
+        // Generate a random number between 1 and 10
+        var numN = Math.floor(Math.random() * 10);
+        console.log(numN);
+    }
 }
 
-        for (var i = 0; i < 10; i++) {
-            // Generate a random number between 1 and 10
-            // Math.floor will round down, meaning we would get a number between 0 and 9, so we'll always add 1 to bump it up.
-            var num = Math.floor(Math.random() * 10) + 1;
-
-      // Write password to the #password input
-        function writePassword() {
-          var password = generatePassword();
-          var passwordText = document.querySelector("#password");
-
-          passwordText.value = password;
-
-        }
+if (confirmSpecial === true) {
+// Generate a character from pwSpecial
+    for (var j = 0; j < 10; j++) {
+        // Generate a random character
+        var numS = pwSpecial[Math.floor(Math.random() * pwSpecial.length)];
+        console.log(numS);
     }
+}
+
+
+// alert: This is your password
+// // Write password to the #password input, with designated
+//     function writePassword() {
+//         var password = generatePassword();
+//         var passwordText = document.querySelector("#password");
+          
+//         passwordText.value = password;
+//       }
+
+
+
+      
