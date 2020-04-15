@@ -1,9 +1,7 @@
-// Assignment Code
-// var generateBtn = document.querySelector("#generate");
+Assignment Code
+var generateBtn = document.querySelector("#generate");
 
 
-// // Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);
 
 var pwUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var pwLower = pwUpper.toLowerCase();
@@ -18,7 +16,7 @@ var confirmUpper = confirm("Do you want upper case letters?")
 var confirmLower = confirm("Do you want lower case letters?")
 var confirmNumeric = confirm("Do you want to use numbers?")
 var confirmSpecial = confirm("Do you want special characters?")
-var confirmLength = prompt("How long do you want your password to be (between 8 and 128?")
+var confirmLength = prompt("How long do you want your password to be (between 8 and 128?)")
 
 // Step 2: PUSH results to end of this array
 var showResult = [];
@@ -68,14 +66,27 @@ if (confirmSpecial === true) {
 
 
 // alert: This is your password
-// // Write password to the #password input, with designated
-//     function writePassword() {
-//         var password = generatePassword();
-//         var passwordText = document.querySelector("#password");
+// Write password to the #password input, with designated: MAIN generatePassword
+    function writePassword() {   
+        var password = generatePassword();
+        var passwordText = document.querySelector("#password");
           
-//         passwordText.value = password;
-//       }
+        passwordText.value = password;
+      }
+// watching that button to see if it's clicked, if it's clicked, runs the write password function
+// generate password is the core
+// function generatePassword() {
 
+// use 3 different functions
 
+function  userCRiteria
+// VAR CRITERIA = GATHERuSERcRITERIA
+//       object 
+//       types: {lowercase, uppercase, }
+// returning them as an object - var criteriaObject
+// store the info upfront
 
-      
+// convert to password, return the newPassword
+return newPassword
+
+// use pure functions
