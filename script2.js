@@ -1,90 +1,81 @@
-// #password is where the generated password will appear
-// function writePassword() {   
-//     var password = generatePassword();
-//     var passwordText = document.querySelector("#password");
-      
-//     passwordText.value = password;
-//   }
+// Assignment Code
+var generateBtn = document.querySelector("#generate");
 
-// // This is going to be the main function, with as little code as possible.
+// #password is where the generated password will appear. This needs to appear above eventlistener
+function writePassword() {   
+    var password = generatePassword();
+    var passwordText = document.querySelector("#password");
 
-var questions = [
-    { q: "Do you want upper case letters?"},
-    { q: "Do you want lower case letters?"},
-    { q: "Do you want numbers?"},
-    { q: "Do you want special characters?"},
-]     
-
-    // Loop over every question object
-    for (var i = 0; i < questions.length; i++) {
-        var answer = confirm(questions[i].q);
-
-    // Compare answers
-        if ((criteria.lowercase === true) || 
-        (answer === false && questions[i].a === "f")) {
-        alert("You chose: " + types);
-        }
-
-        // end the loop for any other letter
-        else if (letter !== null) {
-            alert(letter + " is not a valid option.");
-      }
-    }
+    passwordText.value = password;
+  }
 
 function userCriteria() {
     var criteria = gatherUserCriteria();
-// object with our criteria
+    // object with our criteria
     var criteriaObject = {
         length = 0,
         types: {
-            // just need to go back and do criteria.lowercase = true;
             lowercase = false,
             uppercase = false,
             numeric = false,
             specialChar = false
         }
     }
+
+    if (criteriaObject.lowerCase === true) {
+
+    }
+
+    var questions = [
+        { q: "Do you want upper case letters?"},
+        { q: "Do you want lower case letters?"},
+        { q: "Do you want numbers?"},
+        { q: "Do you want special characters?"},
+    ]
+    // Loop over every question object
+    for (var i = 0; i < questions.length; i++) {
+        // Display current question to user and ask OK/Cancel
+        var answer = confirm(questions[i].q);
+        // Compare answers
+        if (answer === true) {
+            alert("You chose: ");
+        }
+        else if (answer === false) {
+            alert("You do not want ")
+        }
+    }
 }
 
-// Add event listener to generate password on 'click'
+// // Add event listener to generate password on 'click'
 generateBtn.addEventListener("click", writePassword);
 
 // Generate password function
-function generatePassword(lowercase, uppercase, numeric, specialChar, length) {
-        // password variable that we build on
-        // filter out uncomfirmed types
-        // loop length and call generator function for EACH TYPE
-        // Add final password to the password var and return it
+function generatePassword() {
+        // 1. password variable that we build on
+        // 2. filter out uncomfirmed types
+        // 3. loop length and call generator function for EACH TYPE
+        // 4. Add final password to the password var and return it
+        var typesCount = lowerCase + upperCase + numeric + symbol;
+        var arr = [{lowerCase}, {upperCase}, {numeric}, {symbol}]
 
-        var gatherUserCriteria = "";
-        // check the number of checked items
-        var typesCount = lowerCase + upperCase + numeric + specialChar;
-        var typesArr = [{lowerCase}, {upperCase}, {numeric}, {specialChar}]
-        console.log("typesArr", typesArr);
+         if (typesCount === 0) {
+            return " ";
+         }
+         else if (typesCount)
 
-        if(typesCount === 0) {
-            return "";
+        return arr[Math.floor(Math.random() * arr.length)];
         }
-      //loop through arrays  
-        for(let i = 0; i < length; i += typesCount) {
-            typesArr.forEach(type => {
 
-            gatherUserCriteria = criteriaObject[lowercase]();
-            });
-        }
-        var finalPassword = generatedPassword.slice(0, length));
+        // for (i = 0; i < arr.length; i++) {
+        //     let val = arr[i];
+        // }
+        
+        // // push results of shuffled array to new, empty array
+        // var showResult = [];
+        // showResult.push(lowerCase + upperCase + numeric + symbol);
+        // showResult = password;
+        // return password;
 
-        return finalPassword
-    }
-
-
-    // // filter the items that = true
-    // if (criteriaObject !== false) {
-    //     return criteriaObject
-    // }
-
-
-// Generate a random letter. 26 letters
     function getNumeric() {
         var numN = Math.floor(Math.random() * 10);
         return numN;
@@ -104,8 +95,3 @@ function generatePassword(lowercase, uppercase, numeric, specialChar, length) {
         var pwSymbol = "!@#$%^&*(){}[]=<>/,.";
         return pwSymbol[Math.floor(Math.random() * pwSymbol.length)];
     }
-
-    console.log(getNumeric());
-    console.log(getLower());
-    console.log(getUpper());
-    console.log(getSymbol());
