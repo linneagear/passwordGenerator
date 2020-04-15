@@ -73,20 +73,16 @@ if (confirmSpecial === true) {
           
         passwordText.value = password;
       }
-// watching that button to see if it's clicked, if it's clicked, runs the write password function
-// generate password is the core
-// function generatePassword() {
 
-// use 3 different functions
 
-function  userCRiteria
+
+
+// function  userrRiteria
 // VAR CRITERIA = GATHERuSERcRITERIA
 //       object 
 //       types: {lowercase, uppercase, }
 // returning them as an object - var criteriaObject
 // store the info upfront
 
-// convert to password, return the newPassword
-return newPassword
 
 // use pure functions
