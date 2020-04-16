@@ -1,16 +1,6 @@
-Assignment Code
+// Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-
-
-var pwUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var pwLower = pwUpper.toLowerCase();
-
-var pwSpecial = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+"];
-
-// Step 1: Confirm - generate a new password? Yes goes to next, cancel ENDS
-var confirmPW = confirm("Let's generate a new password!");
-alert("Your password must contain at least one number and one uppercase and lowercase letter, or a special character and at least 8 or more characters");
 
 var confirmUpper = confirm("Do you want upper case letters?")
 var confirmLower = confirm("Do you want lower case letters?")
@@ -18,71 +8,88 @@ var confirmNumeric = confirm("Do you want to use numbers?")
 var confirmSpecial = confirm("Do you want special characters?")
 var confirmLength = prompt("How long do you want your password to be (between 8 and 128?)")
 
-// Step 2: PUSH results to end of this array
-var showResult = [];
-showResult.push("Upper case letters?  " + confirmUpper +
-    "\nLower case letters?  " + confirmLower +
-    "\nNumbers?  " + confirmNumeric +
-    "\nSpecial characters?  " + confirmSpecial +
-    "\nDesired password length:  " + confirmLength);
-
-    alert(showResult);
-
-// Step 3: set conditions
+// Step 2: set conditions
 if (confirmUpper === true) {
-    // if they want upper case, computer picks a letter between A and Z
-    for (var i = 0; i < 10; i++) {
-        var numU = pwUpper[Math.floor(Math.random() * pwUpper.length)];
-        console.log(numU);
-    }
-}  
-
-if (confirmLower === true) {
-// if they want lower case, computer picks a letter between a and z
-    for (var j = 0; j < 10; j++) {
-        var pwLower = pwUpper.toString().tolowerCase();
-        var numL = pwLower[Math.floor(Math.random() * pwLower.length)];
-        console.log(pwUpper.charAt(pwUpper));
-    }
-}  
-
-if (confirmNumeric === true) {
-// Generate a random number between 0 and 9
-    for (var i = 0; i < 10; i++) {
-        // Generate a random number between 1 and 10
-        var numN = Math.floor(Math.random() * 10);
-        console.log(numN);
-    }
-}
-
-if (confirmSpecial === true) {
-// Generate a character from pwSpecial
-    for (var j = 0; j < 10; j++) {
-        // Generate a random character
-        var numS = pwSpecial[Math.floor(Math.random() * pwSpecial.length)];
-        console.log(numS);
-    }
+    alert("You want uppercase letters.")
+} if (confirmLower === true) {
+    alert("You want lowercase letters.");
+} if (confirmNumeric === true) {
+    alert("You want numbers.")
+} if (confirmSpecial === true) {
+    alert("You want special characters");
 }
 
 
-// alert: This is your password
-// Write password to the #password input, with designated: MAIN generatePassword
-    function writePassword() {   
-        var password = generatePassword();
-        var passwordText = document.querySelector("#password");
-          
-        passwordText.value = password;
-      }
+// Will output random numbers, lowercase, uppercase, and special characters
+function getNumeric() {
+    var pwNum = Math.floor(Math.random() * 10);
+    return pwNum;
+}
+
+function getLower() {
+    var pwLower = "abcdefghijklmnopqrstuvwxyz";
+    return pwLower[Math.floor(Math.random() * pwLower.length)];
+}
+
+function getUpper() {
+    var pwUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    return pwUpper[Math.floor(Math.random() * pwUpper.length)];
+}
+
+function getSymbol() {
+    var pwSymbol = "!@#$%^&*(){}[]=<>/,.";
+    return pwSymbol[Math.floor(Math.random() * pwSymbol.length)];
+}
+
+// Adds all of the random functions results above
+function lengthDefinition() {
+    return getNumeric() + getLower() + getUpper() + getSymbol()
+}
+
+var arrayOfFunctions = [];
+    // which functions n number of times
+
+
+//Get final password by using user length response
+// confirmLength is the amount of characters the user wants, need to pull that here
+
+// how are we going to generate a password an n number of times (confirmLength)?
+// use a for loop where i < confirmLength
+
+// how do we use for loop to call a certain function n number of times
+// pushing results into an array, randomizing THOSE, use a function where if this is present, have if else statements within
+// and then we know how many loops we need to run
+// how to randomize function call based on each answer
+
+// better to use objects combining all functions into one. Switch array to object, calling a function in an object
+// will push ONLY ONCE before for loop because we don't want to add it repetitively n number of times
+// holding all functions in one object. 1 = getUpper. THis can be at the top, it doesn't matter. SCOPES?
+
+if (confirmUpper === true) {
+    arrayOfFunctions.push(getUpper);
+} else if (confirmLower === true) {
+    arrayOfFunctions.push(getLower);
+} else if (confirmLower === true) {
+    arrayOfFunctions.push(getLower);
+} else if (confirmLower === true) {
+    arrayOfFunctions.push(getLower);
+}
+
+for (i=0; i < confirmLength; i++) {
+    arrayOfFunctions[Math.floor(Math.random())];
+
+    console.log(arrayOfFunctions[0]);
+}
+
+
+// have an array where it pushes that character in array whenever the function is called
+// how to call a certain function?
 
 
 
-
-// function  userrRiteria
-// VAR CRITERIA = GATHERuSERcRITERIA
-//       object 
-//       types: {lowercase, uppercase, }
-// returning them as an object - var criteriaObject
-// store the info upfront
-
-
-// use pure functions
+console.log(getNumeric());
+console.log(getLower());
+console.log(getUpper());
+console.log(getSymbol());
+console.log(lengthDefinition());
+// console.log(generatePassword());

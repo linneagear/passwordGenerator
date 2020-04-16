@@ -46,7 +46,7 @@ function userCriteria() {
 }
 
 // // Add event listener to generate password on 'click'
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", writePassword); 
 
 // Generate password function
 function generatePassword() {
@@ -68,36 +68,14 @@ function generatePassword() {
 generatePassword() = getNumeric() + getLower() + getUpper() + getSymbol()
 return generatePassword();
 
-// // push results of shuffled array to new, empty array
-// var showResult = [];
-// showResult.push(lowerCase + upperCase + numeric + symbol);
-// showResult = password;
-// return password;
 
-function main() {
-    lengthDefinition() = Math.floor(Math.random() * confirmLength);
-}
 
-function lengthDefinition() {
-    return getNumeric() + getLower() + getUpper() + getSymbol()
-    }
+// function  userrRiteria
+// VAR CRITERIA = GATHERuSERcRITERIA
+//       object 
+//       types: {lowercase, uppercase, }
+// returning them as an object - var criteriaObject
+// store the info upfront
 
-function getNumeric() {
-    var pwNum = Math.floor(Math.random() * 10);
-    return pwNum;
-}
 
-function getLower() {
-    var pwLower = "abcdefghijklmnopqrstuvwxyz";
-    return pwLower[Math.floor(Math.random() * pwLower.length)];
-}
-
-function getUpper() {
-    var pwUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    return pwUpper[Math.floor(Math.random() * pwUpper.length)];
-}
-
-function getSymbol() {
-    var pwSymbol = "!@#$%^&*(){}[]=<>/,.";
-    return pwSymbol[Math.floor(Math.random() * pwSymbol.length)];
-}
+// use pure functions
