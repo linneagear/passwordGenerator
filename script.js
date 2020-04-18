@@ -1,26 +1,18 @@
-// Assignment Code
-var generateBtn = document.querySelector("#generate");
-
-
+//Step 1: Ask user for input
+// when button is pressed, THEN user prompts appear
 var confirmUpper = confirm("Do you want upper case letters?")
 var confirmLower = confirm("Do you want lower case letters?")
 var confirmNumeric = confirm("Do you want to use numbers?")
 var confirmSpecial = confirm("Do you want special characters?")
 var confirmLength = prompt("How long do you want your password to be (between 8 and 128?)")
 
+// if i is true, then run the next function
 // Step 2: set conditions
-if (confirmUpper === true) {
-    alert("You want uppercase letters.")
-} if (confirmLower === true) {
-    alert("You want lowercase letters.");
-} if (confirmNumeric === true) {
-    alert("You want numbers.")
-} if (confirmSpecial === true) {
-    alert("You want special characters");
+function userCriteria() {
+    for (i=0; i < Object.confirmLength; i++)
 }
 
-
-// Will output random numbers, lowercase, uppercase, and special characters
+// Each function will output random numbers, lowercase, uppercase, and special characters
 function getNumeric() {
     var pwNum = Math.floor(Math.random() * 10);
     return pwNum;
@@ -41,14 +33,38 @@ function getSymbol() {
     return pwSymbol[Math.floor(Math.random() * pwSymbol.length)];
 }
 
-// Adds all of the random functions results above
-function lengthDefinition() {
-    return getNumeric() + getLower() + getUpper() + getSymbol()
+function generatePassword() {
+    var arr = [];
+        if (confirmUpper === true) {
+            arr.push(getUpper);
+        } if (confirmLower === true) {
+            arr.push(getLower);
+        } if (confirmNumeric === true) {
+            arr.push(getNumeric);
+        } if (confirmSpecial === true) {
+            arr.push(getSymbol);
+        } else {
+            console.log ("----");
+
+    //Randomize arrayOfFunctions
+    for (i=0; i < confirmLength; i++) {
+        return arr[Math.floor(Math.random())];
+    }
+
+console.log(generatePassword());
+
+function writePassword() {
+    var password = generatePassword();
+    var passwordText = document.querySelector("#password");
+
+    passwordText.value = password;
 }
 
-var arrayOfFunctions = [];
-    // which functions n number of times
+// Assignment Code
+var generateBtn = document.querySelector("#generate");
 
+// // Add event listener to generate password on 'click'
+generateBtn.addEventListener("click", writePassword); 
 
 //Get final password by using user length response
 // confirmLength is the amount of characters the user wants, need to pull that here
@@ -62,34 +78,29 @@ var arrayOfFunctions = [];
 // how to randomize function call based on each answer
 
 // better to use objects combining all functions into one. Switch array to object, calling a function in an object
-// will push ONLY ONCE before for loop because we don't want to add it repetitively n number of times
+// will push ONLY ONCE before for loop because we don't want to add it repetitively n number of times, so have conditionals outside of for loop
 // holding all functions in one object. 1 = getUpper. THis can be at the top, it doesn't matter. SCOPES?
 
-if (confirmUpper === true) {
-    arrayOfFunctions.push(getUpper);
-} else if (confirmLower === true) {
-    arrayOfFunctions.push(getLower);
-} else if (confirmLower === true) {
-    arrayOfFunctions.push(getLower);
-} else if (confirmLower === true) {
-    arrayOfFunctions.push(getLower);
-}
-
-for (i=0; i < confirmLength; i++) {
-    arrayOfFunctions[Math.floor(Math.random())];
-
-    console.log(arrayOfFunctions[0]);
-}
 
 
 // have an array where it pushes that character in array whenever the function is called
 // how to call a certain function?
 
-
-
-console.log(getNumeric());
-console.log(getLower());
-console.log(getUpper());
-console.log(getSymbol());
-console.log(lengthDefinition());
+// console.log(getNumeric());
+// console.log(getLower());
+// console.log(getUpper());
+// console.log(getSymbol());
+// console.log(arrayOfFunctions);
 // console.log(generatePassword());
+// console.log(getArray());
+
+// have an array of every character to randomize, and then pick out the numbers/letters?
+function randomPassword(confirmlength) {
+    var chars = "abcdefghijklmnopqrstuvwxyz!@#$%^&*()-+<>ABCDEFGHIJKLMNOP1234567890";
+    var pass = "";
+    for (var x = 0; x < confirmlength; x++) {
+        var i = Math.floor(Math.random() * chars.length);
+        pass += chars.charAt(i);
+    }
+    return pass;
+}
