@@ -19,7 +19,9 @@ function writePassword() {
         var confirmSpecial = confirm("Do you want special characters?")
 
         if (confirmLength >= 8 && confirmLength <= 128 ) {
-          alert("You want " + confirmLength + "Characters.")
+          alert("You want" + confirmLength + " Characters.")
+        } else {
+            alert("Choose a number between 8 and 128.")
         }
 
         // push results into an empty array
@@ -43,7 +45,6 @@ function writePassword() {
         console.log(arr);
 
          // randomize this array
-       
         // run a for loop through the random array, to get the user's requested amount of variables
          for (var i = 0; i < confirmLength; i++) {
             var randomValue = arr[Math.floor(Math.random() * confirmLength)];
