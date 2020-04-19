@@ -1,13 +1,13 @@
 # passwordGenerator
 Homework 3 - Password Generator
 
-User story:
+## User story:
 
 AS AN employee with access to sensitive data
 I WANT to randomly generate a password that meets certain criteria
 SO THAT I can create a strong password that provides greater security
 
-Acceptance Criteria:
+## Acceptance Criteria:
 
 GIVEN I need a new, secure password
 WHEN I click the button to generate a password
@@ -24,3 +24,14 @@ WHEN all prompts are answered
 THEN a password is generated that matches the selected criteria
 WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
+
+## Satisfying the Crieria:
+
+- When 
+
+## Issues: 
+
+## In the Future:
+
+
+
