@@ -101,7 +101,7 @@ function writePassword() {
 }
 
 // function to create password
-function generatePassword() {
+function gatherUserCriteria() {
     if (criteria.error) {
         return criteria.error
     }
@@ -127,70 +127,74 @@ function generatePassword() {
     var confirmLower = confirm("Do you want lower case letters?")
 
     var confirmNumeric = confirm("Do you want to use numbers?")
-    
+
     var confirmSpecial = confirm("Do you want special characters?")
 
+    // store the user's input
+    var passwordOptions = {
+        confirmLength: confirmLength,
+        confirmUpper: confirmUpper,
+        confirmLower: confirmLower,
+        confirmNumeric: confirmNumeric,
+        confirmSpecial: confirmSpecial
+      };
 
-
-    // push results into an empty array
-    var arr = [];
-    if (confirmLower === true) {
-        var char = 'abcdefghijklmnopqrstuvwxyz';
-        arr.push(char);
-    }
-    if (confirmUpper === true) {
-        var charUpper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        arr.push(charUpper);
-    }
-    if (confirmNumeric === true) {
-        var num = '0123456789';
-        arr.push(num);
-    }
-    if (confirmSpecial === true) {
-        var sym = '!@#$%^&*=-_';
-        arr.push(sym);
-    }
-    console.log(arr);
-
-    // randomize this array
-    // run a for loop through the random array, to get the user's requested amount of variables
-    for (var i = 0; i < confirmLength; i++) {
-        var randomValue = arr[Math.floor(Math.random() * confirmLength)];
-        return randomValue;
-    }
-    console.log(confirmUpper);
-    console.log(confirmLower);
-    console.log(confirmNumeric);
-    console.log(confirmSpecial);
-    console.log(generatePassword())
+   return passwordOptions;
 }
 
-// Add event listener to generate password on 'click'
-generateBtn.addEventListener("click", writePassword);
 
-function gatherUserCriteria() {
-    // return criteria as an object
-    var criteria = {
-        length: 0,
-        lowercase: false,
-        uppercase: false,
-        numeric: false,
-        symbol: false
+function generatePassword() {
+    // get the user's responses
+    var options = gatherUserCriteria();
+
+    // to store the result in an empty array
+    var result = [];
+
+    // set up two arrays, one with possible values, another with guaranted values
+    var possibleCharacters = [];
+
+    var guaranteedCharacters = [];
+
+    // if user chose each option, add to both possible and guaranteed
+    if (options.confirmUpper) {
+        possibleCharacters = possibleCharacters.concat(upperCasedCharacters);
+        // push a random uppercase letter into guaranteed
+        guaranteedCharacters.push(getRandom(upperCasedCharacters));
+      }
+
+    if (options.confirmLower) {
+        possibleCharacters = possibleCharacters.concat(lowerCasedCharacters);
+        // push a random lower case letter into guaranteed
+        guaranteedCharacters.push(getRandom(lowerCasedCharacters));
+      }
+    
+    if (options.confirmNumeric) {
+        possibleCharacters = possibleCharacters.concat(numericCharacters);
+        // push a random number into guaranteed
+        guaranteedCharacters.push(getRandom(numericCharacters));
+      }
+    
+    if (options.confirmSpecial) {
+        possibleCharacters = possibleCharacters.concat(specialCharacters);
+        // push a random special character into guaranteed
+        guaranteedCharacters.push(getRandom(specialCharacters));
+      }
+
+
+    // Loop through each array, possible and guaranteed, to then randomize again
+    for (i = 0; i < possibleCharacters.length; i++) {
+        var possibleCharacter = getRandom(possibleCharacters)
+        // push to the final result
+        result.push(possibleCharacter);
     }
 
-    criteria.length = parseInt(prompt("how many characters do you want"))
-    if (isNaN(criteria.length) || criteria.length < 8 || criteria.length > 128) {
-        // break out of the function
-        return {
-            error: "doesnt meet criteria"
-        }
+    for (i = 0; i < guaranteedCharacters.length; i++) {
+        var guaranteedCharacter = getRandom(guaranteedCharacters)
+        // push to the final result
+        result.push(guaranteedCharacter);
     }
-    criteria.lowercase = confrim("");
-    criteria.uppercase = confrim("");
-    criteria.numeric = confrim("");
-    criteria.symbol = confrim("");
-    return criteria;
 }
+
 
 
 function gatherCharacters(criteria) {
@@ -233,16 +237,16 @@ function gatherCharacters(criteria) {
     }
 }
 
+// get a random element from all the characters
+function generateRandom(arr); {
+    var randomString = Math.floor(Math.random() * arr.length)
 
-function generateRandomStringFromList(characters, length, characterLists); {
-    var randomString = '',
-    for (var i = 0; i < length; i++) {
-        var indexInList = Math.floor(Math.random() * characters.length)
-        randomString += characters[IndexInList];
-    }
-    // call itself over and over until it has one from each criteria
-    // an array of arrays
-    for ()
-
-        return randomString;
+    // grab a random index out of the array
+    var randomElement = arr[IndexInList];
+    
+    return randomElement;
 }
+
+
+// Add event listener to generate password on 'click'
+generateBtn.addEventListener("click", writePassword);
