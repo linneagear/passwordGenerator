@@ -117,7 +117,7 @@ function gatherUserCriteria() {
 
     var confirmSpecial = confirm("Do you want special characters?")
     
-    // store the user's input
+    // store the user's input in a variable:
     var passwordOptions = {
         length: length,
         confirmUpper: confirmUpper,
@@ -148,7 +148,7 @@ function generatePassword() {
     // to store the result in an empty array
     var result = [];
 
-    // set up two arrays, one with possible values, another with guaranted values
+    // set up two arrays, one with possible values, another with guaranteed values
     var possibleCharacters = [];
 
     var guaranteedCharacters = [];

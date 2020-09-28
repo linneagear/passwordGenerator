@@ -13,3 +13,5 @@ SO THAT I can create a strong password that provides greater security
 - As long as the password is between 8 and 128, the function will run. Or else the user will have to resubmit.
 - This user criteria is stored in an array which is then looped through the amount of times that the user wanted their password to be.
 - This final array is then randomized and this is what appears when the user clicks generate password.
+
+![Examplepassword](password.JPG)
